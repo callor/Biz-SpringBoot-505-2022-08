@@ -30,8 +30,26 @@ public class UserVO {
             nullable = false,
             unique = true)
     private String username;
+
+    // DB 종류에 관계없이 문자열 255자로 설정하라
+    // NOT NULL 로 설정
+    @Column(length = 255,nullable = false)
     private String password;
+
+    @Column(length = 125)
     private String email;
+
+    // @Column 을 지정하지 않으면
+    // String 형의 경우 문자열(VARCHAR) 255 를 default 로 설정
+    @Column(length = 20)
     private String phone;
+
     private String address;
+
+    @Column(length = 20)
+    private String realname;
+
+    @Column(length = 20)
+    private String nickname;
+
 }

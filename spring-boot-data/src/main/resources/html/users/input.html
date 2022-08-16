@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+</head>
+<body>
+    <form th:object="${user}" class="w3-container" method="POST">
+        <fieldset>
+            <legend>유저정보 등록</legend>
+            <div>
+                <label class="w3-text-blue">USER NAME</label>
+                <input th:field="*{username}" class="w3-input">
+            </div>
+            <div>
+                <label  class="w3-text-blue">PASSWORD</label>
+                <input th:field="*{password}" type="password"  class="w3-input">
+            </div>
+            <div>
+                <label  class="w3-text-blue">E-mail</label>
+                <input th:field="*{email}">
+            </div>
+            <div>
+                <button class="w3-button w3-blue">저장</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

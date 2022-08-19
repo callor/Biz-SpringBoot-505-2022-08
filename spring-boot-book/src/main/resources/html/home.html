@@ -9,18 +9,23 @@
 <h1 class="w3-container">반갑습니다</h1>
 <form method="POST" class="w3-container">
     <label class="w3-text-blue">ISBN</label>
-    <input name="isbn" placeholder="ISBN" class="w3-input"/>
+    <input name="isbn" placeholder="ISBN" class="w3-input"
+                th:value="${BOOK.isbn}"/>
     <label class="w3-text-blue">도서명</label>
-    <input name="title" placeholder="도서명" class="w3-input"/>
+    <input name="title" placeholder="도서명" class="w3-input"
+           th:value="${BOOK.title}"/>
     <label class="w3-text-blue">출판사</label>
-    <input name="comp" placeholder="출판사" class="'w3-input"/>
+    <input name="comp" placeholder="출판사" class="'w3-input"
+           th:value="${BOOK.comp}"/>
     <label class="w3-text-blue">저자</label>
-    <input name="author" placeholder="저자" class="'w3-input"/>
+    <input name="author" placeholder="저자" class="'w3-input"
+           th:value="${BOOK.author}"/>
     <label class="w3-text-blue">출판일</label>
-    <input name="pubdate" placeholder="출판일" class="'w3-input"/>
+    <input name="pubdate" placeholder="출판일" class="'w3-input"
+           th:value="${BOOK.pubdate}"/>
     <label class="w3-text-blue">정가</label>
     <input name="price" type="number"
-           value="0" class="'w3-input"/>
+           th:value="${BOOK.price}" class="'w3-input"/>
     <button class="w3-button w3-blue">저장</button>
 </form>
 <div class="w3-container">
@@ -56,7 +61,8 @@
             const td = e.target
             const tr = td.closest("TR")
             const isbn = tr?.dataset.isbn
-            alert(isbn)
+            // alert(isbn)
+            document.location.href="/?code="+isbn
         })
     })
 

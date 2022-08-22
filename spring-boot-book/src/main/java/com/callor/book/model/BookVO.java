@@ -43,6 +43,11 @@ public class BookVO {
     @Column(length = 10) // 2022-08-19
     private String pubdate; // 출판일
 
+    /*
+    변수형이 int 형일 경우
+    기본값이 NOT NULL 로 설정되므로
+    임의로 nullable 을 true 로 하여 NOT NULL 을 해제 한다
+     */
     @Column(nullable = true)
     private int price;      // 정가
 }

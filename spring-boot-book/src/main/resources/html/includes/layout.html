@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.thymeleaf.org">
+<nav class="container-fluid bg-dark" th:fragment="nav">
+    <ul class="nav">
+        <li class="nav-item">
+            <a th:href="@{/}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/book}" class="nav-link">도서정보</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/user/login}" class="nav-link">로그인</a>
+        </li>
+        <li class="nav-item"><a th:href="@{/user/join}" class="nav-link">회원가입</a></li>
+
+        <li class="nav-item"><a th:href="@{/user/logout}" class="nav-link">로그아웃</a></li>
+        <li class="nav-item"><a th:href="@{/user/mypage}" class="nav-link">MyPage</a></li>
+    </ul>
+</nav>
+
+<footer class="container-fluid text-center bg-primary" th:fragment="footer"">
+    <address>CopyRight &copy; callor@callor.com</address>
+</footer>

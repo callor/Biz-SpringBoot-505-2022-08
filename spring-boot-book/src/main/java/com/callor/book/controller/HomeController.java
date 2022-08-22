@@ -33,7 +33,7 @@ public class HomeController {
             log.debug("findBy 데이터 {}",bookVO);
         }
         model.addAttribute("BOOKS",bookList);
-        return "home";
+        return "index";
     }
 
     @RequestMapping(value="",method = RequestMethod.POST)

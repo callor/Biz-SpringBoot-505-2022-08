@@ -1,0 +1,54 @@
+# yaml 설정파일
+# 계층 구조로 설정 하기
+# 공통된 property 항목은 맨 앞줄부터 사용하고
+# : 을 붙여준후
+# 이후의 속성들은 tab 을 입력하여 들여 쓰기 한후
+# 속성들을 설정
+
+spring:
+  devtools:
+    restart.enabled: true
+    remote.restart.enabled: true
+
+
+# DBMS Setting
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bootDB
+    username: callor
+    password: '!Korea8080'
+
+# Use Option
+# create : Create after Table Deletion Caution!!!
+# creat-drop : Create Table and
+#       Delete When exiting Project Caution!!!
+# none
+# update : Alter table, 단 Create 이후에 사용가능
+# validate : Error occurred after inspection
+  jpa:
+    hibernate.ddl-auto: update
+    properties:
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+
+  thymeleaf:
+    prefix: classpath:html/
+    suffix: .html
+    mode: HTML5
+    template-resolver-order: 0
+
+  # 외부에서 접근하는 경루
+  mvc:
+    static-path-pattern: /static/**
+
+  # 서버의 폴더 개방하기
+  web:
+    resources:
+      static-locations: classpath:static/
+
+# logback setup
+logging:
+  config: classpath:logback-local.xml
+  level:
+    com.callor.book: debug
+    org.springframework: debug

@@ -51,4 +51,5 @@ logging:
   config: classpath:logback-local.xml
   level:
     com.callor.book: debug
-    org.springframework: debug
+    org.springframework: INFO
+    org.springframework.boot.autoconfigure: INFO

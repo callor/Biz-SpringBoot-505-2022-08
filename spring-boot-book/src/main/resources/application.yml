@@ -26,7 +26,7 @@ spring:
 # update : Alter table, 단 Create 이후에 사용가능
 # validate : Error occurred after inspection
   jpa:
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: create
     properties:
       hibernate.show_sql: true
       hibernate.format_sql: true

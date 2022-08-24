@@ -7,7 +7,7 @@
 <nav class="navbar navbar-expand=sm bg-dark navbar-dark">
     <th:block th:include="includes/layout :: nav" />
 </nav>
-<h2>로그인</h2>
+<h2>회원가입</h2>
 <form method="POST" class="container-fluid">
     <div class="form-group">
         <label for="username">USER NAME</label>
@@ -18,9 +18,11 @@
         <label for="password">비밀번호</label>
         <input name="password" type="password" id="password" class="form-control">
     </div>
-    <button class="btn btn-primary">로그인</button>
+    <button class="btn btn-primary">회원가입</button>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 </form>
-<th:block th:include="includes/layout :: footer"/>
+< <footer class="container-fluid text-center bg-primary">
+    <th:block th:include="includes/layout :: footer" />
+</footer>
 </body>
 </html>

@@ -8,11 +8,21 @@
     <header class="container-fluid text-center">
         <h1>나의 도서정보 페이지</h1>
     </header>
-    <th:block th:include="includes/layout :: nav"/>
+    <nav class="navbar navbar-expand=sm bg-dark navbar-dark">
+        <th:block th:include="includes/layout :: nav"/>
+    </nav>
     <section>
 
 
     </section>
-    <th:block th:include="includes/layout :: footer" />
+    <footer class="container-fluid text-center bg-primary">
+        <th:block th:include="includes/layout :: footer" />
+    </footer>
+
+    <form th:action="@{/logout}" method="POST" id="logout">
+        <input
+                th:name = "${_csrf.parameterName}"
+                th:value="${_csrf.token}">
+    </form>
 </body>
 </html>

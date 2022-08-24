@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 @Builder
 @Entity
 @Table(name ="tbl_authorities")
@@ -33,7 +33,7 @@ public class UserRole {
     동시에 실행하지 말라
     읽기 전용으로 만 사용하겠다
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="username",
             referencedColumnName = "username",
             insertable = false,
@@ -41,4 +41,13 @@ public class UserRole {
     )
     private UserVO userVO;
 
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "seq=" + seq +
+                ", username='" + username + '\'' +
+                ", rolename='" + rolename + '\'' +
+                '}';
+    }
 }

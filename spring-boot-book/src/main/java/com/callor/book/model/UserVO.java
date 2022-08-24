@@ -1,18 +1,37 @@
 package com.callor.book.model;
 
+/*
+JPA 프로젝트에서 자주 발생하는 오류메시지
+SLF4J: Failed toString() invocation on an object of type [UserVO]
+could not initialize proxy - no Session
+
+이 메시지의 원인은 toString() method 가 문제가 발생했다라는 것이다
+근본적인 원인은 @OneToMany, @ManyToOne 이 설정하였을 경우
+    원하는 바는 tbl_users table 을 select 할때
+    tbl_authorities table 을 같이(JOIN) 하여
+    SELECT 한 후 하나의 VO 객체에 담기위한 코드이다
+
+이 코드를 사용할때 lombok 의 @ToString 을 사용하면
+실제 toString() method 가 생성될때 문제를 일으키는 코드가 만들어 진다
+때문에 lombok 의 @ToString 을 사용하지 말고 직접 toString() method 를 만들어야 한다
+ */
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
+// @OneToMany 와 충돌하여 lombok @ToString 사용하지 않는다
+// @ToString
+
 @Builder
 @Entity
 @Table(name = "tbl_users")
@@ -75,4 +94,17 @@ public class UserVO implements UserDetails {
             fetch = FetchType.LAZY)
     private Set<UserRole> userRoles;
 
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", email='" + email + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
 }
